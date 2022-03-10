@@ -104,5 +104,24 @@ insert into brat(ogrlica,asocijalno,neprijatelj) values(4,'',1);
 delete from brat where ogrlica!=14;
 
 
+select  * from cura;
+select suknja from cura where drugiput=null;
+
+select * from zarucnica;
+update zarucnica set novcica = 9.99 where sifra>1;
+
+select * from brat;
+insert into brat (ogrlica,asocijalno,neprijatelj) values (1,'',1);
+select * from decko;
+update decko set vesta='barca';
+
+select a.novcica, f.neprijatelj, e.haljina 
+from zarucnica a inner join decko_zarucnica b 
+on a.sifra=b.zarucnica
+inner join decko c on c.sifra=b.decko 
+inner join cura d on d.decko=c.sifra 
+inner join neprijatelj e on e.cura=d.sifra 
+inner join brat f on f.neprijatelj=e.sifra
+where c.vesta like '%ba%';
 
 
