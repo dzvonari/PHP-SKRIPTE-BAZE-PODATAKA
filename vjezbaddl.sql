@@ -114,6 +114,10 @@ select * from brat;
 insert into brat (ogrlica,asocijalno,neprijatelj) values (1,'',1);
 select * from decko;
 update decko set vesta='barca';
+update zarucnica set novcica='5' where sifra=1;
+select * from neprijatelj;
+insert into brat (ogrlica,asocijalno,neprijatelj) values (5,'',2);
+insert into brat (ogrlica,asocijalno,neprijatelj) values (6,'',3);
 
 select a.novcica, f.neprijatelj, e.haljina 
 from zarucnica a inner join decko_zarucnica b 
@@ -122,6 +126,6 @@ inner join decko c on c.sifra=b.decko
 inner join cura d on d.decko=c.sifra 
 inner join neprijatelj e on e.cura=d.sifra 
 inner join brat f on f.neprijatelj=e.sifra
-where c.vesta like '%ba%';
+;
 
 
